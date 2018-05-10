@@ -40,7 +40,7 @@ const news = {
     const settings = {
       url: 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN',
       data: {
-      	categories: `${category}`
+        categories: `${category}`
       },
       dataType: 'json',
       type: 'GET',
@@ -50,17 +50,26 @@ const news = {
   }
 };
 
-////////////////////////////////////
+//////////////////////////////////
 // VIDEOS API
-////////////////////////////////////
-// const videos = {
-//   data: (query, callback) => {
-//     const settings = {
-
-//     };
-//     $.ajax(settings)
-//   }
-// };
+//////////////////////////////////
+const videos = {
+  data: (query, callback) => {
+    const settings = {
+      url: 'https://www.googleapis.com/youtube/v3/search',
+      data: {
+        part: 'snippet',
+        maxResults: 6,
+        key: 'AIzaSyCp0YOtbMRwglaTChGdQ9IxgwrOyxxCrpI',
+        q: `${query}`
+      },
+      dataType: 'json',
+      type: 'GET',
+      success: callback
+    };
+    $.ajax(settings)
+  }
+};
 
 
 ////////////////////////////////////
@@ -152,12 +161,13 @@ const display = {
       <!-- Grid column -->
   	`
   },
-  // getVideos: data => {
-
-  // },
-  // videos: results => {
-  // 	console.log('videos working')
-  // }
+  getVideos: data => {
+    const results = data.items.map((item, index) => display.videos(item));
+    $('#js-videos').html(results);
+  },
+  videos: results => {
+    console.log(results)
+  }
 };
 
 ////////////////////////////////////
@@ -193,14 +203,14 @@ const launch = {
   initialize: () => {
     $(document).ready(() => {
       $('.mdb-select').material_select();
-      // SET INITIAL CRYPTO ON LOAD
+
+      // SET INITIAL CRYPTO DATA ON LOAD
       crypto.prices('BTC', display.prices);
       crypto.topExchanges('BTC', display.topExchanges);
       crypto.historicalPrice('BTC', display.historicalPrice);
       news.data('BTC', display.getNews);
-      videos.data(display.getVideos);
+      videos.data('BTC', display.getVideos);
 
-      $('#js-prices-tab').html('<i class="fa fa-dollar fa-2x" aria-hidden="true"></i><br>BTC Prices');
     });
   },
   displayTickers: () => {
@@ -213,8 +223,10 @@ const launch = {
       crypto.topExchanges(`${symbol}`, display.topExchanges);
       crypto.historicalPrice(`${symbol}`, display.historicalPrice);
       news.data(`${symbol}`, display.getNews);
+      videos.data(`${symbol}`, display.getVideos);
 
       $('#js-prices-tab').html(`<i class="fa fa-dollar fa-2x" aria-hidden="true"></i><br>${symbol} Prices`);
+      $('#js-recent-news').html(`RECENT ${symbol} NEWS`);
     });
     return ticker;
   },

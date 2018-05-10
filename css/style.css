@@ -15,7 +15,7 @@ h1 {
 }
 
 .container-fluid {
-  margin-top: 0 !important;
+  margin: 0 !important;
   padding-left: 0;
   padding-right: 0;
 }
@@ -73,8 +73,9 @@ h1 {
 
 .section-title {
   padding: 3rem;
-  /*background: black;*/
   color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  z-index: 1;
 }
 
 .section-title h1 {
@@ -159,17 +160,8 @@ h1 {
 .market-column-left-header,
 .market-column-grey {
   box-shadow: 3px 11px 20px 2px #8080803d;
-  /*transition: .22s;*/
 }
 
-/*.market-column-light:hover h2,
-.market-column-dark:hover h2,
-.market-column-header:hover h1,
-.market-column-header:hover h2,
-.market-column-grey:hover h2 {
-  color: #1cc1d8;
-}
-*/
 .fa-arrow-up {
   color: green;
 }
@@ -190,14 +182,16 @@ img.img-fluid.article-image {
   min-height: 90px;
 }
 
-.view-more-articles {
+.view-more-articles,
+.view-more-videos {
   width: 100%;
+  padding: 1.5rem;
   background: black;
-  margin-top: 0;
+  margin: 0;
 }
 
 .article-column {
   border-right: 1px solid whitesmoke;
   border-bottom: 1px solid whitesmoke;
-  padding: 30px;
+  padding: 60px;
 }
