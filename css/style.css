@@ -130,12 +130,12 @@ body {
   font-size: 1.25rem;
 }
 
-/*.market-column-light,
+.market-column-light,
 .market-column-dark,
 .market-column-header,
 .market-column-left-header,
 .market-column-grey {
-  box-shadow: 3px 11px 20px 2px #8080803d;
+  /*box-shadow: 3px 11px 20px 2px #8080803d;*/
   transition: .22s;
 }
 
@@ -144,8 +144,8 @@ body {
 .market-column-header:hover,
 .market-column-left-header:hover,
 .market-column-grey:hover {
-  transform: scale(1.025);
-}*/
+  transform: scale(1.015);
+}
 
 .fa-arrow-up {
   color: green;

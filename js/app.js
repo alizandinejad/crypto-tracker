@@ -22,7 +22,7 @@ const crypto = {
   }
 };
 
-// CRYPTO.PRICES CALLBACK
+// CALLBACK
 const display = {
   prices: data => {
     const symbol = Object.keys(data.DISPLAY)[0];
@@ -30,16 +30,17 @@ const display = {
 
     $('#js-ticker').html(`${symbol}`);
     $('#js-ticker-price').html(`${coin.PRICE}`);
+
     $('#js-market-cap').html(`${coin.MKTCAP}`);
     $('#js-day-volume').html(`${coin.VOLUME24HOURTO}`);
     $('#js-circulating-supply').html(`${coin.SUPPLY}`);
+
     $('#js-day-high').html(`${coin.HIGH24HOUR}`)
     $('#js-day-low').html(`${coin.LOW24HOUR}`);
     $('#js-day-change').html(`${coin.CHANGE24HOUR}`);
     $('#js-day-change-percent').html(`${coin.CHANGEPCT24HOUR}%`);
   },
   topExchanges: data => {
-    console.log(data)
     $('#js-exchange-one').html(`${data.Data[0].exchange}`);
     $('#js-exchange-one-volume').html(`$ ${data.Data[0].volume24hTo}`.substring(0, 13));
 
