@@ -182,8 +182,7 @@ img.img-fluid.article-image {
   min-height: 90px;
 }
 
-.view-more-articles,
-.view-more-videos {
+.view-more-articles, {
   width: 100%;
   padding: 1.5rem;
   background: black;
@@ -194,36 +193,4 @@ img.img-fluid.article-image {
   border-right: 1px solid whitesmoke;
   border-bottom: 1px solid whitesmoke;
   padding: 60px;
-}
-
-/*
-  LATEST VIDEOS
-*/
-
-.video-column {
-  padding: 0;
-}
-
-.card.card-cascade .view, .card.card-image [class*=rgba-] {
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.card.card-image {
-  -webkit-background-size: cover;
-  background-size: contain;
-  background-position: center;
-  border-radius: 0;
-  width: 100%;
-  height: 100%;
-  border: 1px solid whitesmoke;
-}
-
-.rgba-black-strong {
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 100%;
-}
-
-.mb-3, .my-3 {
-  margin-bottom: 0!important;
 }
