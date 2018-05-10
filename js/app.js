@@ -36,9 +36,12 @@ const crypto = {
 // NEWS API
 //////////////////////////////////
 const news = {
-  data: (callback) => {
+  data: (category, callback) => {
     const settings = {
       url: 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN',
+      data: {
+      	categories: `${category}`
+      },
       dataType: 'json',
       type: 'GET',
       success: callback
@@ -114,14 +117,14 @@ const display = {
   },
   getNews: data => {
     let results = '';
-    let count = 12;
+    let count = 6;
     for (let i = 0; i < count; i++) {
       results += display.news(data.Data[i]);
     }
     $('#js-view-more-articles').on('click', () => {
       if (count < data.Data.length) {
-        count += 12;
-        for (let i = count - 12; i < count && i < data.Data.length; i++) {
+        count += 6;
+        for (let i = count - 6; i < count && i < data.Data.length; i++) {
           $('#js-news').append(display.news(data.Data[i]));
         }
       }
@@ -134,14 +137,7 @@ const display = {
   news: results => {
     return `
       <!-- Grid column -->
-      <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 article-column">
-        <!-- Featured image -->
-        <div class="view overlay rounded z-depth-2 mb-4">
-          <img class="img-fluid article-image" src="${results.imageurl}" alt="${results.title}">
-          <a href="${results.url}" target="_blank">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
+      <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 article-column">   
         <!-- Category -->
         <div class="pink-text"><h6 class="font-weight-bold mb-3">${results.categories}</h6></div>
         <!-- Post title -->
@@ -155,7 +151,13 @@ const display = {
       </div>
       <!-- Grid column -->
   	`
-  }
+  },
+  // getVideos: data => {
+
+  // },
+  // videos: results => {
+  // 	console.log('videos working')
+  // }
 };
 
 ////////////////////////////////////
@@ -195,7 +197,8 @@ const launch = {
       crypto.prices('BTC', display.prices);
       crypto.topExchanges('BTC', display.topExchanges);
       crypto.historicalPrice('BTC', display.historicalPrice);
-      news.data(display.getNews);
+      news.data('BTC', display.getNews);
+      videos.data(display.getVideos);
 
       $('#js-prices-tab').html('<i class="fa fa-dollar fa-2x" aria-hidden="true"></i><br>BTC Prices');
     });
@@ -209,6 +212,7 @@ const launch = {
       crypto.prices(`${symbol}`, display.prices);
       crypto.topExchanges(`${symbol}`, display.topExchanges);
       crypto.historicalPrice(`${symbol}`, display.historicalPrice);
+      news.data(`${symbol}`, display.getNews);
 
       $('#js-prices-tab').html(`<i class="fa fa-dollar fa-2x" aria-hidden="true"></i><br>${symbol} Prices`);
     });
