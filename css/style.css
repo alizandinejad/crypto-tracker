@@ -6,6 +6,10 @@ body {
   box-sizing: border-box
 }
 
+.hidden {
+  display: none;
+}
+
 /*
   NAVIGATION
 */
@@ -88,15 +92,12 @@ body {
 }
 
 .market-column-left-header {
-  background: -webkit-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
-  background: -o-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
-  background: linear-gradient(40deg,#ff6ec4,#7873f5)!important;
   color: white;
+  padding: 3rem;
 }
 
 .market-column-light,
-.market-column-header,
-.market-column-left-header {
+.market-column-header {
   padding: 3rem;
   border-bottom: 1px solid whitesmoke;
   border-right: 1px solid whitesmoke;
@@ -120,10 +121,7 @@ body {
 .market-column-light h2,
 .market-column-dark h2,
 .market-column-left-header h2,
-.market-column-grey h2 {
-  font-size: 1.25rem;
-}
-
+.market-column-grey h2,
 .market-column-light h3,
 .market-column-dark h3,
 .market-column-grey h3 {
@@ -135,16 +133,16 @@ body {
 .market-column-header,
 .market-column-left-header,
 .market-column-grey {
-  /*box-shadow: 3px 11px 20px 2px #8080803d;*/
-  transition: .22s;
+  box-shadow: 3px 11px 20px 2px #8080803d;
+  /*transition: .22s;*/
 }
 
-.market-column-light:hover,
-.market-column-dark:hover,
-.market-column-header:hover,
-.market-column-left-header:hover,
-.market-column-grey:hover {
-  transform: scale(1.015);
+.market-column-light:hover h2,
+.market-column-dark:hover h2,
+.market-column-header:hover h1,
+.market-column-header:hover h2,
+.market-column-grey:hover h2 {
+  color: #1cc1d8;
 }
 
 .fa-arrow-up {

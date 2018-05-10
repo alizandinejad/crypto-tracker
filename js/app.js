@@ -1,5 +1,5 @@
 ////////////////////////////////////
-// MARKET DATA (PRICES / TOP EXCHANGES) API & CALLBACK
+// MARKET DATA API'S
 ////////////////////////////////////
 const crypto = {
   prices: (symbol, callback) => {
@@ -19,10 +19,53 @@ const crypto = {
       success: callback
     };
     $.ajax(settings);
+  },
+  historicalPrice: (symbol, callback) => {
+    const settings = {
+      url: `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=USD&limit=5`,
+      dataType: 'json',
+      type: 'GET',
+      success: callback
+    };
+    $.ajax(settings);
   }
 };
 
-// CALLBACK
+
+//////////////////////////////////
+// NEWS API
+//////////////////////////////////
+const news = {
+  data: (category, callback) => {
+    const settings = {
+      url: 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN',
+      data: {
+        categories: `${category}`
+      },
+      dataType: 'json',
+      type: 'GET',
+      success: callback
+    };
+    $.ajax(settings)
+  }
+};
+
+////////////////////////////////////
+// VIDEOS API
+////////////////////////////////////
+// const videos = {
+//   data: (query, callback) => {
+//     const settings = {
+
+//     };
+//     $.ajax(settings)
+//   }
+// };
+
+
+////////////////////////////////////
+// API CALLBACK FUNCTIONS
+////////////////////////////////////
 const display = {
   prices: data => {
     const symbol = Object.keys(data.DISPLAY)[0];
@@ -55,34 +98,65 @@ const display = {
 
     $('#js-exchange-five').html(`${data.Data[4].exchange}`);
     $('#js-exchange-five-volume').html(`$ ${data.Data[4].volume24hTo}`.substring(0, 13));
+  },
+  historicalPrice: data => {
+    $('#js-history-one-date').html(`${convert.time(data.Data[0].time)}`);
+    $('#js-history-one-price').html(`$ ${data.Data[0].close}`);
+
+    $('#js-history-two-date').html(`${convert.time(data.Data[1].time)}`);
+    $('#js-history-two-price').html(`$ ${data.Data[1].close}`);
+
+    $('#js-history-three-date').html(`${convert.time(data.Data[2].time)}`);
+    $('#js-history-three-price').html(`$ ${data.Data[2].close}`);
+
+    $('#js-history-four-date').html(`${convert.time(data.Data[3].time)}`);
+    $('#js-history-four-price').html(`$ ${data.Data[3].close}`);
+
+    $('#js-history-five-date').html(`${convert.time(data.Data[4].time)}`);
+    $('#js-history-five-price').html(`$ ${data.Data[4].close}`);
+  },
+  getNews: data => {
+    // const results = data.Data.map((item, index) => display.news(item));
+    let results = '';
+    let count = 3;
+    for (let i = 0; i < count; i++) {
+      results += display.news(data.Data[i]);
+    }
+    $('#js-view-more-articles').on('click', () => {
+      count += 3;
+      for (let i = count - 3; i < count && i < data.Data.length; i++) {
+        // results += display.news(data.Data[i]);
+        $('#js-news').append(display.news(data.Data[i]));
+      }
+    });
+    $('#js-news').html(results);
+  },
+  news: results => {
+    return `
+      <!-- Grid column -->
+      <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-4">
+          <img class="img-fluid" src="${results.imageurl}" alt="${results.title}">
+          <a href="${results.url}" target="_blank">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <!-- Category -->
+        <a href="#!" target="_blank" class="pink-text"><h6 class="font-weight-bold mb-3"><i class="fa fa-map pr-2"></i>${results.categories}</h6></a>
+        <!-- Post title -->
+        <h4 class="font-weight-bold mb-3"><strong>${results.title}</strong></h4>
+        <!-- Post data -->
+        <p>by <a target="_blank" class="font-weight-bold">${results.source_info.name}</a>, 15/07/2018</p>
+        <!-- Excerpt -->
+        <p class="dark-grey-text">${results.body.substring(0, 135)}...</p>
+        <!-- Read more button -->
+        <a href="${results.url}" target="_blank" class="btn btn-pink btn-rounded btn-md">Read more</a>
+      </div>
+      <!-- Grid column -->
+  	`
   }
 };
-
-
-// ////////////////////////////////////
-// // NEWS API & CALLBACK
-// ////////////////////////////////////
-// const news = {
-//   data: callback => {
-//     const settings = {
-
-//     };
-//     $.ajax(settings)
-//   }
-// };
-
-////////////////////////////////////
-// VIDEOS API & CALLBACK
-////////////////////////////////////
-// const videos = {
-//   data: (query, callback) => {
-//     const settings = {
-
-//     };
-//     $.ajax(settings)
-//   }
-// };
-
 
 ////////////////////////////////////
 // FULL CRYPTO CURRENCY COIN LIST
@@ -97,6 +171,20 @@ const tickers = {
 };
 
 ////////////////////////////////////
+// DATE TIME CONVERSION
+////////////////////////////////////
+const convert = {
+  time: time => {
+    let timestamp = time;
+    let pubDate = new Date(timestamp * 1000);
+    let weekday = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+    let monthname = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+    let formattedDate = weekday[pubDate.getDay()] + ' ' + monthname[pubDate.getMonth()] + ' ' + pubDate.getDate() + ', ' + pubDate.getFullYear();
+    return formattedDate;
+  }
+};
+
+////////////////////////////////////
 // RUN PROGRAM
 ////////////////////////////////////
 const launch = {
@@ -105,7 +193,9 @@ const launch = {
       $('.mdb-select').material_select();
       // SET INITIAL CRYPTO ON LOAD
       crypto.prices('BTC', display.prices);
-      crypto.topExchanges('BTC', display.topExchanges)
+      crypto.topExchanges('BTC', display.topExchanges);
+      crypto.historicalPrice('BTC', display.historicalPrice);
+      news.data('BTC', display.getNews);
     });
   },
   displayTickers: () => {
@@ -116,6 +206,8 @@ const launch = {
       let symbol = $(event.target).val();
       crypto.prices(`${symbol}`, display.prices);
       crypto.topExchanges(`${symbol}`, display.topExchanges);
+      crypto.historicalPrice(`${symbol}`, display.historicalPrice);
+      news.data(`${symbol}`, display.getNews);
     });
     return ticker;
   },
