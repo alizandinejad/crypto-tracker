@@ -67,68 +67,72 @@ const news = {
 // API CALLBACK FUNCTIONS
 ////////////////////////////////////
 const display = {
-  prices: data => {
-    const symbol = Object.keys(data.DISPLAY)[0];
-    const coin = data.DISPLAY[symbol].USD;
+    prices: data => {
+      const symbol = Object.keys(data.DISPLAY)[0];
+      const coin = data.DISPLAY[symbol].USD;
 
-    $('#js-ticker').html(`${symbol}`);
-    $('#js-ticker-price').html(`${coin.PRICE}`);
+      $('#js-ticker').html(`${symbol}`);
+      $('#js-ticker-price').html(`${coin.PRICE}`);
 
-    $('#js-market-cap').html(`${coin.MKTCAP}`);
-    $('#js-day-volume').html(`${coin.VOLUME24HOURTO}`);
-    $('#js-circulating-supply').html(`${coin.SUPPLY}`);
+      $('#js-market-cap').html(`${coin.MKTCAP}`);
+      $('#js-day-volume').html(`${coin.VOLUME24HOURTO}`);
+      $('#js-circulating-supply').html(`${coin.SUPPLY}`);
 
-    $('#js-day-high').html(`${coin.HIGH24HOUR}`)
-    $('#js-day-low').html(`${coin.LOW24HOUR}`);
-    $('#js-day-change').html(`${coin.CHANGE24HOUR}`);
-    $('#js-day-change-percent').html(`${coin.CHANGEPCT24HOUR}%`);
-  },
-  topExchanges: data => {
-    $('#js-exchange-one').html(`${data.Data[0].exchange}`);
-    $('#js-exchange-one-volume').html(`$ ${data.Data[0].volume24hTo}`.substring(0, 13));
+      $('#js-day-high').html(`${coin.HIGH24HOUR}`)
+      $('#js-day-low').html(`${coin.LOW24HOUR}`);
+      $('#js-day-change').html(`${coin.CHANGE24HOUR}`);
+      $('#js-day-change-percent').html(`${coin.CHANGEPCT24HOUR}%`);
+    },
+    topExchanges: data => {
+      $('#js-exchange-one').html(`${data.Data[0].exchange}`);
+      $('#js-exchange-one-volume').html(`$ ${data.Data[0].volume24hTo}`.substring(0, 13));
 
-    $('#js-exchange-two').html(`${data.Data[1].exchange}`);
-    $('#js-exchange-two-volume').html(`$ ${data.Data[1].volume24hTo}`.substring(0, 13));
+      $('#js-exchange-two').html(`${data.Data[1].exchange}`);
+      $('#js-exchange-two-volume').html(`$ ${data.Data[1].volume24hTo}`.substring(0, 13));
 
-    $('#js-exchange-three').html(`${data.Data[2].exchange}`);
-    $('#js-exchange-three-volume').html(`$ ${data.Data[2].volume24hTo}`.substring(0, 13));
+      $('#js-exchange-three').html(`${data.Data[2].exchange}`);
+      $('#js-exchange-three-volume').html(`$ ${data.Data[2].volume24hTo}`.substring(0, 13));
 
-    $('#js-exchange-four').html(`${data.Data[3].exchange}`);
-    $('#js-exchange-four-volume').html(`$ ${data.Data[3].volume24hTo}`.substring(0, 13));
+      $('#js-exchange-four').html(`${data.Data[3].exchange}`);
+      $('#js-exchange-four-volume').html(`$ ${data.Data[3].volume24hTo}`.substring(0, 13));
 
-    $('#js-exchange-five').html(`${data.Data[4].exchange}`);
-    $('#js-exchange-five-volume').html(`$ ${data.Data[4].volume24hTo}`.substring(0, 13));
-  },
-  historicalPrice: data => {
-    $('#js-history-one-date').html(`${convert.time(data.Data[0].time)}`);
-    $('#js-history-one-price').html(`$ ${data.Data[0].close}`);
+      $('#js-exchange-five').html(`${data.Data[4].exchange}`);
+      $('#js-exchange-five-volume').html(`$ ${data.Data[4].volume24hTo}`.substring(0, 13));
+    },
+    historicalPrice: data => {
+      $('#js-history-one-date').html(`${convert.time(data.Data[0].time)}`);
+      $('#js-history-one-price').html(`$ ${data.Data[0].close}`);
 
-    $('#js-history-two-date').html(`${convert.time(data.Data[1].time)}`);
-    $('#js-history-two-price').html(`$ ${data.Data[1].close}`);
+      $('#js-history-two-date').html(`${convert.time(data.Data[1].time)}`);
+      $('#js-history-two-price').html(`$ ${data.Data[1].close}`);
 
-    $('#js-history-three-date').html(`${convert.time(data.Data[2].time)}`);
-    $('#js-history-three-price').html(`$ ${data.Data[2].close}`);
+      $('#js-history-three-date').html(`${convert.time(data.Data[2].time)}`);
+      $('#js-history-three-price').html(`$ ${data.Data[2].close}`);
 
-    $('#js-history-four-date').html(`${convert.time(data.Data[3].time)}`);
-    $('#js-history-four-price').html(`$ ${data.Data[3].close}`);
+      $('#js-history-four-date').html(`${convert.time(data.Data[3].time)}`);
+      $('#js-history-four-price').html(`$ ${data.Data[3].close}`);
 
-    $('#js-history-five-date').html(`${convert.time(data.Data[4].time)}`);
-    $('#js-history-five-price').html(`$ ${data.Data[4].close}`);
-  },
-  getNews: data => {
-    // const results = data.Data.map((item, index) => display.news(item));
-    let results = '';
-    let count = 3;
-    for (let i = 0; i < count; i++) {
-      results += display.news(data.Data[i]);
-    }
-    $('#js-view-more-articles').on('click', () => {
-      count += 3;
-      for (let i = count - 3; i < count && i < data.Data.length; i++) {
-        // results += display.news(data.Data[i]);
-        $('#js-news').append(display.news(data.Data[i]));
+      $('#js-history-five-date').html(`${convert.time(data.Data[4].time)}`);
+      $('#js-history-five-price').html(`$ ${data.Data[4].close}`);
+    },
+    getNews: data => {
+      let results = '';
+      let count = 3;
+      for (let i = 0; i < count; i++) {
+        results += display.news(data.Data[i]);
       }
-    });
+      $('#js-view-more-articles').on('click', () => {
+          if (count < data.Data.length) {
+            count += 3;
+            for (let i = count - 3; i < count && i < data.Data.length; i++) {
+              $('#js-news').append(display.news(data.Data[i]));
+              console.log(count);
+            }
+          }
+          if (count >= data.Data.length) {
+            $('#js-view-more-articles').addClass('hidden');
+          }
+      });
     $('#js-news').html(results);
   },
   news: results => {
