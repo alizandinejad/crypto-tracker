@@ -21,10 +21,12 @@ body {
   COIN SELECT DROPDOWN
 */
 
+
 .select-dropdown,
 .filtrable,
 .search {
   text-align: center;
+
 }
 
 .select-wrapper .search-wrap {
@@ -37,30 +39,59 @@ body {
 
 .select-wrapper span.caret {
   right: 10px;
+  color: white;
   z-index: 1;
 }
 
 .select-wrapper input.select-dropdown {
-  background: white;
+  background: black;
+  color: white;
+  margin-bottom: 0;
+  border-bottom: 1px solid whitesmoke;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 
+
 /*
-  PRICE PANELS
+  MARKET DATA
 */
 
-.card-body {
-  padding: 3rem;
+.market-data {
   text-align: center;
 }
 
-/*.ticker-card {
-  background: black;
-  color: white;
-  font-size: 3rem;
+.market-column,
+.market-column-header {
+  padding: 3rem;
+  background: white;
+  border-bottom: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
 }
 
-/*.ticker-symbol {
-  margin-bottom: 0;
-}*/
+.market-column-header h1,
+.market-column-header h2 {
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.market-column h1,
+.market-column h2 {
+  font-weight: 900;
+}
+
+.market-column h2 {
+  font-size: 1.25rem;
+}
+
+.market-column h3 {
+  font-size: 1.25rem;
+}
+
+.fa-arrow-up {
+  color: green;
+}
+
+.fa-arrow-down {
+  color: red;
+}

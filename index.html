@@ -30,87 +30,80 @@
       <option value="choose" id="choose" disabled selected>Choose Coin</option>
     </select>
   </section>
-  <!-- CRYPTO PRICES -->
-  <section role="region" class="container-fluid">
+  <!-- MARKET DATA -->
+  <section role="region" class="container-fluid market-data">
     <div class="row">
-      <!--Panel-->
-      <div class="col-lg-6 col-sm-12">
-        <div class="card">
-          <div class="card-body">
-            <h1 class="card-title" id="js-ticker"></h1>
-            <h3 class="card-title"></h3>
-            <br />
-            <!--Table-->
-            <div class="table-responsive">
-              <table class="table">
-                <!--Table head-->
-                <!--Table head-->
-                <!--Table body-->
-                <tbody>
-                  <tr>
-                    <td>Current Price</td>
-                    <td id="js-ticker-price"></td>
-                  </tr>
-                  <tr>
-                    <td>24hr High</td>
-                    <td id="js-day-high"></td>
-                  </tr>
-                  <tr>
-                    <td>24hr Low</td>
-                    <td id="js-day-low"></td>
-                  </tr>
-                  <tr>
-                    <td>24hr $ Change</td>
-                    <td id="js-day-change"></td>
-                  </tr>
-                  <tr>
-                    <td>24hr % Change</td>
-                    <td id="js-day-change-percent"></td>
-                  </tr>
-                  <tr>
-                    <td>Jerry</td>
-                    <td id="js-"></td>
-                  </tr>
-                  <tr>
-                    <td>Janis</td>
-                    <td id="js-"></td>
-                  </tr>
-                </tbody>
-                <!--Table body-->
-              </table>
-            </div>
-            <!--Table-->
-          </div>
-        </div>
+      <!-- Symbol -->
+      <div class="col-lg-6 market-column-header">
+        <h1 id="js-ticker"></h1>
       </div>
-      <!--/.Panel-->
-      <!--Panel-->
-      <!-- <div class="col-sm-3">
-        <div class="card">
-          <div class="card-body">
-
-          </div>
-        </div>
-      </div> -->
-      <!--/.Panel-->
-      <!--Panel-->
-      <!--       <div class="col-sm-3">
-        <div class="card">
-          <div class="card-body">
-           
-          </div>
-        </div>
-      </div> -->
-      <!--/.Panel-->
-      <!--Panel-->
-      <!--       <div class="col-sm-3">
-        <div class="card">
-          <div class="card-body">
-           
-          </div>
-        </div>
-      </div> -->
-      <!--/.Panel-->
+      <!-- Price -->
+      <div class="col-lg-6 market-column-header">
+        <h2 class="ticker-price" id="js-ticker-price"></h2>
+      </div>
+    </div>
+    <!-- MARKET CAP + 24 HOUR VOLUME + CIRCULATING SUPPLY -->
+    <div class="row market-data-dark">
+      <div class="col-lg-4 market-column">
+        <h2>Market Cap</h2>
+        <h3 id="js-market-cap"></h3>
+      </div>
+      <div class="col-lg-4 market-column">
+        <h2>24hr Volume</h2>
+        <h3 id="js-day-volume"></h3>
+      </div>
+      <div class="col-lg-4 market-column">
+        <h2>Circulating Supply</h2>
+        <h3 id="js-circulating-supply"></h3>
+      </div>
+    </div>
+    <!-- 24 HOUR PRICE CHANGES -->
+    <div class="row market-data-dark">
+      <div class="col-lg-3 market-column">
+        <h2>24hr Low <i class="fa fa-arrow-down" aria-hidden="true"></i></h2>
+        <h3 id="js-day-low"></h3>
+      </div>
+      <div class="col-lg-3 market-column">
+        <h2>24hr High <i class="fa fa-arrow-up" aria-hidden="true"></i></h2>
+        <h3 id="js-day-high"></h3>
+      </div>
+      <div class="col-lg-3 market-column">
+        <h2>24hr Change <i class="fa fa-dollar" aria-hidden="true"></i></h2>
+        <h3 id="js-day-change"></h3>
+      </div>
+      <div class="col-lg-3 market-column">
+        <h2>24hr Change <i class="fa fa-percent" aria-hidden="true"></i></h2>
+        <h3 id="js-day-change-percent"></h3>
+      </div>
+    </div>
+    <!-- TOP EXCHANGES BY VOLUME -->
+    <div class="row">
+      <div class="col-lg-2 market-column">
+        <h2>
+          Top Exchanges <br />
+          By Volume
+          </h2>
+      </div>
+      <div class="col-lg-2 market-column">
+        <h2 id="js-exchange-one"></h2>
+        <h3 id="js-exchange-one-volume"></h3>
+      </div>
+      <div class="col-lg-2 market-column">
+        <h2 id="js-exchange-two"></h2>
+        <h3 id="js-exchange-two-volume"></h3>
+      </div>
+      <div class="col-lg-2 market-column">
+        <h2 id="js-exchange-three"></h2>
+        <h3 id="js-exchange-three-volume"></h3>
+      </div>
+      <div class="col-lg-2 market-column">
+        <h2 id="js-exchange-four"></h2>
+        <h3 id="js-exchange-four-volume"></h3>
+      </div>
+      <div class="col-lg-2 market-column">
+        <h2 id="js-exchange-five"></h2>
+        <h3 id="js-exchange-five-volume"></h3>
+      </div>
     </div>
   </section>
   <!-- SCRIPTS -->
