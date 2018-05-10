@@ -137,18 +137,52 @@ body {
   /*transition: .22s;*/
 }
 
-.market-column-light:hover h2,
+/*.market-column-light:hover h2,
 .market-column-dark:hover h2,
 .market-column-header:hover h1,
 .market-column-header:hover h2,
 .market-column-grey:hover h2 {
   color: #1cc1d8;
 }
-
+*/
 .fa-arrow-up {
   color: green;
 }
 
 .fa-arrow-down {
   color: red;
+}
+
+/*
+  LATEST ARTICLES
+*/
+
+img.img-fluid.article-image {
+    min-width: 100%;
+}
+
+.article-title {
+  min-height: 90px;
+}
+
+.view-more-articles {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.article-column {
+  margin: 20px 0;
+}
+
+
+/*
+  TAB CONTENT
+*/
+
+.tab-content {
+  padding: 0;
+}
+
+.classic-tabs {
+  background: black;
 }

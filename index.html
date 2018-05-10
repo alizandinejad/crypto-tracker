@@ -30,125 +30,153 @@
       <option value="choose" id="choose" disabled selected>Choose Coin</option>
     </select>
   </section>
-  <!-- MARKET DATA -->
-  <section role="region" class="container-fluid market-data">
-    <div class="row">
-      <!-- Symbol -->
-      <div class="col-lg-6 market-column-header">
-        <h1 id="js-ticker"></h1>
-      </div>
-      <!-- Price -->
-      <div class="col-lg-6 market-column-header">
-        <h2 class="ticker-price" id="js-ticker-price"></h2>
-      </div>
-    </div>
-    <!-- MARKET CAP + 24 HOUR VOLUME + CIRCULATING SUPPLY -->
-    <div class="row">
-      <div class="col-lg-4 market-column-light">
-        <h2>Market Cap</h2>
-        <h3 id="js-market-cap"></h3>
-      </div>
-      <div class="col-lg-4 market-column-light">
-        <h2>24hr Volume</h2>
-        <h3 id="js-day-volume"></h3>
-      </div>
-      <div class="col-lg-4 market-column-light">
-        <h2>Circulating Supply</h2>
-        <h3 id="js-circulating-supply"></h3>
-      </div>
-    </div>
-    <!-- 24 HOUR PRICE CHANGES -->
-    <div class="row">
-      <div class="col-lg-3 market-column-dark">
-        <h2>24hr Low <i class="fa fa-arrow-down" aria-hidden="true"></i></h2>
-        <h3 id="js-day-low"></h3>
-      </div>
-      <div class="col-lg-3 market-column-dark">
-        <h2>24hr High <i class="fa fa-arrow-up" aria-hidden="true"></i></h2>
-        <h3 id="js-day-high"></h3>
-      </div>
-      <div class="col-lg-3 market-column-dark">
-        <h2>24hr Change <i class="fa fa-dollar" aria-hidden="true"></i></h2>
-        <h3 id="js-day-change"></h3>
-      </div>
-      <div class="col-lg-3 market-column-dark">
-        <h2>24hr Change <i class="fa fa-percent" aria-hidden="true"></i></h2>
-        <h3 id="js-day-change-percent"></h3>
-      </div>
-    </div>
-    <!-- TOP EXCHANGES BY VOLUME -->
-    <div class="row">
-      <div class="col-lg-2 market-column-left-header peach-gradient">
-        <h2>
+  <!-- TABS -->
+  <!-- Nav tabs -->
+  <div class="tabs-wrapper">
+    <ul class="nav classic-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link waves-light active" data-toggle="tab" href="#panel61" role="tab" id="js-prices-tab"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" data-toggle="tab" href="#panel62" role="tab"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i><br>Crypto News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" data-toggle="tab" href="#panel63" role="tab"><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i><br>Videos</a>
+      </li>
+    </ul>
+  </div>
+  <!-- Tab panels -->
+  <div class="tab-content card">
+    <!--Panel 1-->
+    <div class="tab-pane fade in show active" id="panel61" role="tabpanel">
+      <!-- MARKET DATA -->
+      <section role="region" class="container-fluid market-data">
+        <div class="row">
+          <!-- Symbol -->
+          <div class="col-lg-6 market-column-header">
+            <h1 id="js-ticker"></h1>
+          </div>
+          <!-- Price -->
+          <div class="col-lg-6 market-column-header">
+            <h2 class="ticker-price" id="js-ticker-price"></h2>
+          </div>
+        </div>
+        <!-- MARKET CAP + 24 HOUR VOLUME + CIRCULATING SUPPLY -->
+        <div class="row">
+          <div class="col-lg-4 market-column-light">
+            <h2>Market Cap</h2>
+            <h3 id="js-market-cap"></h3>
+          </div>
+          <div class="col-lg-4 market-column-light">
+            <h2>24hr Volume</h2>
+            <h3 id="js-day-volume"></h3>
+          </div>
+          <div class="col-lg-4 market-column-light">
+            <h2>Circulating Supply</h2>
+            <h3 id="js-circulating-supply"></h3>
+          </div>
+        </div>
+        <!-- 24 HOUR PRICE CHANGES -->
+        <div class="row">
+          <div class="col-lg-3 market-column-dark">
+            <h2>24hr Low <i class="fa fa-arrow-down" aria-hidden="true"></i></h2>
+            <h3 id="js-day-low"></h3>
+          </div>
+          <div class="col-lg-3 market-column-dark">
+            <h2>24hr High <i class="fa fa-arrow-up" aria-hidden="true"></i></h2>
+            <h3 id="js-day-high"></h3>
+          </div>
+          <div class="col-lg-3 market-column-dark">
+            <h2>24hr Change <i class="fa fa-dollar" aria-hidden="true"></i></h2>
+            <h3 id="js-day-change"></h3>
+          </div>
+          <div class="col-lg-3 market-column-dark">
+            <h2>24hr Change <i class="fa fa-percent" aria-hidden="true"></i></h2>
+            <h3 id="js-day-change-percent"></h3>
+          </div>
+        </div>
+        <!-- TOP EXCHANGES BY VOLUME -->
+        <div class="row">
+          <div class="col-lg-2 market-column-left-header peach-gradient">
+            <h2>
           Top Exchanges <br />
           By Volume
           </h2>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-exchange-one"></h2>
-        <h3 id="js-exchange-one-volume"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-exchange-two"></h2>
-        <h3 id="js-exchange-two-volume"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-exchange-three"></h2>
-        <h3 id="js-exchange-three-volume"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-exchange-four"></h2>
-        <h3 id="js-exchange-four-volume"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-exchange-five"></h2>
-        <h3 id="js-exchange-five-volume"></h3>
-      </div>
-    </div>
-    <!-- 5 DAY PRICE HISTORY -->
-    <div class="row">
-      <div class="col-lg-2 market-column-left-header purple-gradient">
-        <h2>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-exchange-one"></h2>
+            <h3 id="js-exchange-one-volume"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-exchange-two"></h2>
+            <h3 id="js-exchange-two-volume"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-exchange-three"></h2>
+            <h3 id="js-exchange-three-volume"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-exchange-four"></h2>
+            <h3 id="js-exchange-four-volume"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-exchange-five"></h2>
+            <h3 id="js-exchange-five-volume"></h3>
+          </div>
+        </div>
+        <!-- 5 DAY PRICE HISTORY -->
+        <div class="row">
+          <div class="col-lg-2 market-column-left-header purple-gradient">
+            <h2>
           5 Day <br />
           Price History
           </h2>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-history-one-date"></h2>
-        <h3 id="js-history-one-price"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-history-two-date"></h2>
-        <h3 id="js-history-two-price"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-history-three-date"></h2>
-        <h3 id="js-history-three-price"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-history-four-date"></h2>
-        <h3 id="js-history-four-price"></h3>
-      </div>
-      <div class="col-lg-2 market-column-grey">
-        <h2 id="js-history-five-date"></h2>
-        <h3 id="js-history-five-price"></h3>
-      </div>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-history-one-date"></h2>
+            <h3 id="js-history-one-price"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-history-two-date"></h2>
+            <h3 id="js-history-two-price"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-history-three-date"></h2>
+            <h3 id="js-history-three-price"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-history-four-date"></h2>
+            <h3 id="js-history-four-price"></h3>
+          </div>
+          <div class="col-lg-2 market-column-grey">
+            <h2 id="js-history-five-date"></h2>
+            <h3 id="js-history-five-price"></h3>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-  <!-- LATEST CRYPTO NEWS -->
-  <!-- Section: Blog v.2 -->
-  <section class="text-center my-5 container">
-    <!-- Section heading -->
-    <h2 class="h1-responsive font-weight-bold my-5">Recent posts</h2>
-    <!-- Section description -->
-    <p class="dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <!-- Grid row -->
-    <div class="row" id="js-news">
+    <!--/.Panel 1-->
+    <!--Panel 2-->
+    <div class="tab-pane fade" id="panel62" role="tabpanel">
+      <!-- LATEST CRYPTO NEWS -->
+      <!-- Section: Blog v.2 -->
+      <section class="text-center my-5 container">
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold my-5">Latest Crypto News</h2>
+        <!-- Grid row -->
+        <div class="row" id="js-news">
+        </div>
+        <button class="btn btn-default view-more-articles acqua-gradient" id="js-view-more-articles">View More Articles</button>
+        <!-- Grid row -->
+      </section>
+      <!-- Section: Blog v.2 -->
     </div>
-      <button id="js-view-more-articles">View More</button>
-    <!-- Grid row -->
-  </section>
-  <!-- Section: Blog v.2 -->
+    <!--/.Panel 2-->
+    <!--Panel 3-->
+    <div class="tab-pane fade" id="panel63" role="tabpanel">
+    </div>
+    <!--/.Panel 3-->
+  </div>
   <!-- SCRIPTS -->
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/popper.min.js"></script>
