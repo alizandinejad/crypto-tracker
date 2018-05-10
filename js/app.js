@@ -114,7 +114,7 @@ const launch = {
     const ticker = $('#js-coin-list').on('change', event => {
       let symbol = $(event.target).val();
       crypto.prices(`${symbol}`, display.prices);
-      crypto.topExchanges(`${symbol}`, display.prices);
+      crypto.topExchanges(`${symbol}`, display.topExchanges);
     });
     return ticker;
   },
