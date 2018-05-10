@@ -50,28 +50,6 @@ const news = {
   }
 };
 
-//////////////////////////////////
-// VIDEOS API
-//////////////////////////////////
-const videos = {
-  data: (query, callback) => {
-    const settings = {
-      url: 'https://www.googleapis.com/youtube/v3/search',
-      data: {
-        part: 'snippet',
-        maxResults: 6,
-        key: 'AIzaSyCp0YOtbMRwglaTChGdQ9IxgwrOyxxCrpI',
-        q: `${query}`
-      },
-      dataType: 'json',
-      type: 'GET',
-      success: callback
-    };
-    $.ajax(settings)
-  }
-};
-
-
 ////////////////////////////////////
 // API CALLBACK FUNCTIONS
 ////////////////////////////////////
@@ -160,13 +138,6 @@ const display = {
       </div>
       <!-- Grid column -->
   	`
-  },
-  getVideos: data => {
-    const results = data.items.map((item, index) => display.videos(item));
-    $('#js-videos').html(results);
-  },
-  videos: results => {
-    console.log(results)
   }
 };
 
@@ -197,6 +168,19 @@ const convert = {
 };
 
 ////////////////////////////////////
+// LOAD MORE BUTTON
+////////////////////////////////////
+const more = {
+  videos: () => {
+    const count = 6;
+    $('#js-view-more-videos').on('click', () => {
+      console.log('here');
+      videos.data(`${symbol}`, count += 6, display.getVideos);
+    });
+  }
+};
+
+////////////////////////////////////
 // RUN PROGRAM
 ////////////////////////////////////
 const launch = {
@@ -209,7 +193,6 @@ const launch = {
       crypto.topExchanges('BTC', display.topExchanges);
       crypto.historicalPrice('BTC', display.historicalPrice);
       news.data('BTC', display.getNews);
-      videos.data('BTC', display.getVideos);
 
     });
   },
@@ -223,7 +206,6 @@ const launch = {
       crypto.topExchanges(`${symbol}`, display.topExchanges);
       crypto.historicalPrice(`${symbol}`, display.historicalPrice);
       news.data(`${symbol}`, display.getNews);
-      videos.data(`${symbol}`, display.getVideos);
 
       $('#js-prices-tab').html(`<i class="fa fa-dollar fa-2x" aria-hidden="true"></i><br>${symbol} Prices`);
       $('#js-recent-news').html(`RECENT ${symbol} NEWS`);
