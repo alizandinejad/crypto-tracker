@@ -25,14 +25,93 @@
     <a class="navbar-brand middle" href="/coin-tracker/">CryptoTracker</a>
   </nav>
   <!-- COIN SELECT DROPDOWN -->
-    <section role="region">
-      <select class="mdb-select colorful-select dropdown-primary" id="js-coin-list" searchable="Search here..">
-        <option value="choose" id="choose" disabled selected>Choose Coin</option>
-      </select>
-    </section>
-  <!-- CRYPTO PRICES -->
   <section role="region">
-    
+    <select class="mdb-select colorful-select dropdown-primary" id="js-coin-list" searchable="Search here..">
+      <option value="choose" id="choose" disabled selected>Choose Coin</option>
+    </select>
+  </section>
+  <!-- CRYPTO PRICES -->
+  <section role="region" class="container-fluid">
+    <div class="row">
+      <!--Panel-->
+      <div class="col-lg-6 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" id="js-ticker"></h1>
+            <h3 class="card-title"></h3>
+            <br />
+            <!--Table-->
+            <div class="table-responsive">
+              <table class="table">
+                <!--Table head-->
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                  <tr>
+                    <td>Current Price</td>
+                    <td id="js-ticker-price"></td>
+                  </tr>
+                  <tr>
+                    <td>24hr High</td>
+                    <td id="js-day-high"></td>
+                  </tr>
+                  <tr>
+                    <td>24hr Low</td>
+                    <td id="js-day-low"></td>
+                  </tr>
+                  <tr>
+                    <td>24hr $ Change</td>
+                    <td id="js-day-change"></td>
+                  </tr>
+                  <tr>
+                    <td>24hr % Change</td>
+                    <td id="js-day-change-percent"></td>
+                  </tr>
+                  <tr>
+                    <td>Jerry</td>
+                    <td id="js-"></td>
+                  </tr>
+                  <tr>
+                    <td>Janis</td>
+                    <td id="js-"></td>
+                  </tr>
+                </tbody>
+                <!--Table body-->
+              </table>
+            </div>
+            <!--Table-->
+          </div>
+        </div>
+      </div>
+      <!--/.Panel-->
+      <!--Panel-->
+      <!-- <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+
+          </div>
+        </div>
+      </div> -->
+      <!--/.Panel-->
+      <!--Panel-->
+      <!--       <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+           
+          </div>
+        </div>
+      </div> -->
+      <!--/.Panel-->
+      <!--Panel-->
+      <!--       <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+           
+          </div>
+        </div>
+      </div> -->
+      <!--/.Panel-->
+    </div>
   </section>
   <!-- SCRIPTS -->
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>

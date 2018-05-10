@@ -18,7 +18,7 @@ body {
 }
 
 /*
-COIN SELECT DROPDOWN
+  COIN SELECT DROPDOWN
 */
 
 .select-dropdown,
@@ -45,3 +45,22 @@ COIN SELECT DROPDOWN
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
+
+/*
+  PRICE PANELS
+*/
+
+.card-body {
+  padding: 3rem;
+  text-align: center;
+}
+
+/*.ticker-card {
+  background: black;
+  color: white;
+  font-size: 3rem;
+}
+
+/*.ticker-symbol {
+  margin-bottom: 0;
+}*/
