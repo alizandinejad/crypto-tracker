@@ -168,19 +168,6 @@ const convert = {
 };
 
 ////////////////////////////////////
-// LOAD MORE BUTTON
-////////////////////////////////////
-const more = {
-  videos: () => {
-    const count = 6;
-    $('#js-view-more-videos').on('click', () => {
-      console.log('here');
-      videos.data(`${symbol}`, count += 6, display.getVideos);
-    });
-  }
-};
-
-////////////////////////////////////
 // RUN PROGRAM
 ////////////////////////////////////
 const launch = {
