@@ -21,12 +21,12 @@ h1 {
   padding-right: 0;
 }
 
+
 /*
   NAVIGATION
 */
 
 .navbar-brand {
-  /*margin: 0 auto;*/
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -35,16 +35,15 @@ h1 {
   background: black;
 }
 
+
 /*
   COIN SELECT DROPDOWN
 */
-
 
 .select-dropdown,
 .filtrable,
 .search {
   text-align: center;
-
 }
 
 .select-wrapper .search-wrap {
@@ -64,9 +63,10 @@ h1 {
   background: whitesmoke;
   margin-bottom: 0;
   border-bottom: 1px solid whitesmoke;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
 }
+
 
 /*
   SECTION HEADERS
@@ -75,13 +75,14 @@ h1 {
 .section-title {
   padding: 3rem;
   color: white;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
   z-index: 1;
 }
 
 .section-title h1 {
   font-weight: 900;
 }
+
 
 /*
   MARKET DATA
@@ -171,12 +172,13 @@ h1 {
   color: red;
 }
 
+
 /*
   LATEST ARTICLES
 */
 
 img.img-fluid.article-image {
-    min-width: 100%;
+  min-width: 100%;
 }
 
 .article-title {
