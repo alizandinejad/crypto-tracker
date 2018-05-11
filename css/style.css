@@ -15,9 +15,10 @@ h1 {
 }
 
 .container-fluid {
-  margin: 0 !important;
-  padding-left: 0;
-  padding-right: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+/*  padding-left: 0;
+  padding-right: 0;*/
 }
 
 /*
@@ -25,7 +26,7 @@ h1 {
 */
 
 .navbar-brand {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   font-size: 1.5rem;
   font-weight: 900;
 }
@@ -186,11 +187,16 @@ img.img-fluid.article-image {
   width: 100%;
   padding: 1.5rem;
   background: black;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .article-column {
   border-right: 1px solid whitesmoke;
   border-bottom: 1px solid whitesmoke;
   padding: 60px;
+}
+
+h2.recent-news {
+  font-size: 2.5rem !important;
+  font-weight: 900 !important;
 }

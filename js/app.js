@@ -124,17 +124,15 @@ const display = {
   news: results => {
     return `
       <!-- Grid column -->
-      <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 article-column">   
-        <!-- Category -->
-        <div class="pink-text"><h6 class="font-weight-bold mb-3">${results.categories}</h6></div>
+      <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 article-column">           
         <!-- Post title -->
-        <h4 class="font-weight-bold mb-3 article-title"><strong>${results.title.substring(0, 75)}...</strong></h4>
+        <h2 class="font-weight-bold mb-3 article-title"><strong>${results.title.substring(0, 50)}...</strong></h2>
         <!-- Post data -->
         <p>by <a target="_blank" class="font-weight-bold">${results.source_info.name}</a>, 15/07/2018</p>
         <!-- Excerpt -->
-        <p class="dark-grey-text">${results.body.substring(0, 135)}...</p>
+        <p class="dark-grey-text">${results.body.substring(0, 120)}...</p>
         <!-- Read more button -->
-        <a href="${results.url}" target="_blank" class="btn btn-pink btn-rounded btn-md">Read more</a>
+        <a href="${results.url}" target="_blank" class="btn btn-blue btn-rounded btn-md">Read more</a>
       </div>
       <!-- Grid column -->
   	`
@@ -176,10 +174,10 @@ const launch = {
       $('.mdb-select').material_select();
 
       // SET INITIAL CRYPTO DATA ON LOAD
-      crypto.prices('BTC', display.prices);
-      crypto.topExchanges('BTC', display.topExchanges);
-      crypto.historicalPrice('BTC', display.historicalPrice);
-      news.data('BTC', display.getNews);
+      crypto.prices('XRP', display.prices);
+      crypto.topExchanges('XRP', display.topExchanges);
+      crypto.historicalPrice('XRP', display.historicalPrice);
+      news.data('XRP', display.getNews);
 
     });
   },
